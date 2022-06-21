@@ -1,4 +1,4 @@
-from curses import BUTTON1_CLICKED
+from curses import BUTTON1_CLICKED, window
 from os import O_WRONLY
 from tkinter import *
 from funcs import *
@@ -6,7 +6,6 @@ from funcs import *
 
 def genBtns(win, io):
     btn1 = Button(win, text=1, command=lambda: append(io, 1))
-    btn1.bind(BUTTON1_CLICKED)
     btn1.grid(column=0, row=1)
 
     btn2 = Button(win, text=2, command=lambda: append(io, 2))
@@ -55,14 +54,14 @@ def genBtns(win, io):
     divide.grid(column=4, row=3)
 
     #fourth
-    ansBtn = Button(win, text="ANS", command=lambda: showAns(io))
-    ansBtn.grid(column=3, row=4)
-
     btn0 = Button(win, text=0, command=lambda: append(io, 0))
     btn0.grid(column=1, row=4)
 
     dot = Button(win, text=".", command=lambda: append(io, "."))
     dot.grid(column=2, row=4)
+
+    ansBtn = Button(win, text="ANS", command=lambda: showAns(io))
+    ansBtn.grid(column=3, row=4)
 
     equal = Button(win, text="=", command=lambda: Eval(io))
     equal.grid(column=4, row=4)

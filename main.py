@@ -1,4 +1,3 @@
-from cProfile import label
 from btns import *
 from tkinter import *
 
